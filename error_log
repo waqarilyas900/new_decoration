@@ -1,0 +1,299 @@
+[10-Jan-2024 19:37:09 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[10-Jan-2024 19:37:19 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[10-Jan-2024 19:37:32 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[10-Jan-2024 19:37:36 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[10-Jan-2024 19:37:58 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Jan-2024 16:13:28 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Jan-2024 16:13:32 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Jan-2024 16:17:38 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting end of file in /opt/cpanel/ea-php82/root/usr/bin/php on line 2521
+[11-Jan-2024 17:20:08 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "config" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#13 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#14 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('config')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('config', Array, true)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('config', Array)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('config', Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate\Foundation\Application->make('config')
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(544): Illuminate\Container\Container->offsetGet('config')
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(595): Illuminate\Log\LogManager->getDefaultDriver()
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\Log\LogManager->parseDriver(NULL)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\Log\LogManager->driver()
+#9 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\Log\LogManager->error('Call to undefin...', Array)
+#10 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\Foundation\Exceptions\Handler->reportThrowable(Object(Error))
+#11 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\Foundation\Exceptions\Handler->report(Object(Error))
+#12 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\Foundation\Console\Kernel->reportException(Object(Error))
+#13 /home/erpdecorations/public_html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Jan-2024 17:27:09 UTC] PHP Fatal error:  Constant expression contains invalid operations in /home/erpdecorations/public_html/vendor/livewire/livewire/src/helpers.php on line 120
+[11-Jan-2024 17:27:29 UTC] PHP Fatal error:  Constant expression contains invalid operations in /home/erpdecorations/public_html/vendor/livewire/livewire/src/helpers.php on line 120

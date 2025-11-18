@@ -1,0 +1,213 @@
+[19-Feb-2024 19:06:25 UTC] PHP Warning:  include(/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php): Failed to open stream: No such file or directory in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[19-Feb-2024 19:06:25 UTC] PHP Warning:  include(): Failed opening '/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[19-Feb-2024 19:06:25 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "App\Http\Kernel" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#9 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#10 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [App\Http\Kernel] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#9 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Mar-2024 19:45:29 UTC] PHP Warning:  include(/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php): Failed to open stream: No such file or directory in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:45:29 UTC] PHP Warning:  include(): Failed opening '/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:45:29 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "App\Http\Kernel" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#9 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#10 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [App\Http\Kernel] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#9 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Mar-2024 19:45:39 UTC] PHP Warning:  include(/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php): Failed to open stream: No such file or directory in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:45:39 UTC] PHP Warning:  include(): Failed opening '/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:45:39 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "App\Http\Kernel" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#9 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#10 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [App\Http\Kernel] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#9 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Mar-2024 19:46:14 UTC] PHP Warning:  include(/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php): Failed to open stream: No such file or directory in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:46:14 UTC] PHP Warning:  include(): Failed opening '/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:46:14 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "App\Http\Kernel" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#9 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#10 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [App\Http\Kernel] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#9 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Mar-2024 19:46:29 UTC] PHP Warning:  include(/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php): Failed to open stream: No such file or directory in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:46:29 UTC] PHP Warning:  include(): Failed opening '/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:46:29 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "App\Http\Kernel" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#9 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#10 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [App\Http\Kernel] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#9 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[11-Mar-2024 19:46:39 UTC] PHP Warning:  include(/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php): Failed to open stream: No such file or directory in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:46:39 UTC] PHP Warning:  include(): Failed opening '/home/erpdecorations/public_html/vendor/composer/../../app/Http/Kernel.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[11-Mar-2024 19:46:39 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "App\Http\Kernel" does not exist in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:912
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(912): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#9 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#10 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [App\Http\Kernel] does not exist. in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:914
+Stack trace:
+#0 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build('App\\Http\\Kernel')
+#1 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('App\\Http\\Kernel', Array, false)
+#2 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(297): Illuminate\Foundation\Application->resolve('App\\Http\\Kernel', Array, false)
+#3 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate\Container\Container->build(Object(Closure))
+#5 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(955): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#6 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#7 /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(940): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#8 /home/erpdecorations/public_html/public/index.php(49): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#9 {main}
+  thrown in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 914
+[15-Mar-2024 19:16:42 UTC] PHP Fatal error:  Cannot declare class App\Livewire\Order\RemovedOrderComponent, because the name is already in use in /home/erpdecorations/public_html/storage/framework/views/3c606308ce22c77bed0584beeb356f2a.php on line 25
+[15-Mar-2024 19:17:12 UTC] PHP Fatal error:  Cannot declare class App\Livewire\Order\RemovedOrderComponent, because the name is already in use in /home/erpdecorations/public_html/storage/framework/views/3c606308ce22c77bed0584beeb356f2a.php on line 25
+[17-Aug-2025 19:42:10 America/New_York] PHP Fatal error:  Out of memory (allocated 16777216) (tried to allocate 1310720 bytes) in /home/erpdecorations/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Console/AboutCommand.php on line 152
+[17-Aug-2025 19:42:19 America/New_York] PHP Fatal error:  Out of memory (allocated 14680064) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/vendor/spatie/laravel-ignition/src/IgnitionServiceProvider.php on line 264
+[17-Aug-2025 19:42:57 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:42:57 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:42:48 America/New_York] PHP Fatal error:  Out of memory (allocated 18874368) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/vendor/symfony/translation/MessageCatalogue.php on line 275
+[17-Aug-2025 19:42:57 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 23:42:57 UTC] PHP Fatal error:  Out of memory (allocated 2097152) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/vendor/composer/autoload_static.php on line 1521
+[17-Aug-2025 23:42:56 UTC] PHP Fatal error:  Out of memory (allocated 2097152) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/vendor/composer/autoload_static.php on line 1521
+[17-Aug-2025 23:42:54 UTC] PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 249856 bytes) in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[17-Aug-2025 23:42:48 UTC] PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 167936 bytes) in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[17-Aug-2025 23:42:56 UTC] PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 249856 bytes) in /home/erpdecorations/public_html/vendor/composer/ClassLoader.php on line 571
+[17-Aug-2025 23:42:56 UTC] PHP Fatal error:  Out of memory (allocated 2097152) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/vendor/composer/autoload_static.php on line 1521
+[17-Aug-2025 23:42:30 UTC] PHP Fatal error:  Out of memory (allocated 2097152) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/vendor/composer/autoload_static.php on line 1521
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:09 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:18 America/New_York] PHP Fatal error:  Out of memory (allocated 27262976) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:18 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:11 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:08 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:11 America/New_York] PHP Fatal error:  Out of memory (allocated 23068672) (tried to allocate 8192 bytes) in /home/erpdecorations/public_html/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php on line 71
+[17-Aug-2025 19:43:19 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:43:19 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:43:19 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:43:19 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:43:19 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233
+[17-Aug-2025 19:43:19 America/New_York] PHP Fatal error:  Out of memory (allocated 20971520) (tried to allocate 32768 bytes) in /home/erpdecorations/public_html/app/Livewire/Order/PendingOrderComponent.php on line 233

@@ -1,0 +1,32 @@
+[21-Apr-2025 16:29:12 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/erpdecorations/public_html/routes/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/api.php on line 17
+[21-Apr-2025 16:29:12 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/erpdecorations/public_html/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/channels.php on line 16
+[21-Apr-2025 16:29:12 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/erpdecorations/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/console.php on line 17
+[21-Apr-2025 16:29:13 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/erpdecorations/public_html/routes/web.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/web.php on line 25
+[26-Apr-2025 18:19:07 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/erpdecorations/public_html/routes/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/api.php on line 17
+[26-Apr-2025 18:19:08 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/erpdecorations/public_html/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/channels.php on line 16
+[26-Apr-2025 18:19:10 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/erpdecorations/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/console.php on line 17
+[26-Apr-2025 18:19:11 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/erpdecorations/public_html/routes/web.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/erpdecorations/public_html/routes/web.php on line 25
