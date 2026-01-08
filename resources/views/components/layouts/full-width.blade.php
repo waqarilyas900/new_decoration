@@ -13,7 +13,7 @@
 
 
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.min.css?v=1.0.7" rel="stylesheet" />
-    @filamentStyles
+    
 </head>
 
 <body class>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </footer>
-    @filamentScripts
+   
 </body>
 
 </html>

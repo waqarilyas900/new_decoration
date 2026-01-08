@@ -45,6 +45,8 @@ class ReadyOrderComponent extends Component
     #[Url] 
     public $employee_id;
 
+    public $ready_by;
+
     public function mount()
     {
         // $this->employees = Employee::where('type', 2)->where('active', 1)
