@@ -18,6 +18,7 @@ class Order extends Model
         'created_by',
         'status',
         'is_priority',
+        'notes',
     ];
     protected $casts = [
         'is_priority' => 'boolean',

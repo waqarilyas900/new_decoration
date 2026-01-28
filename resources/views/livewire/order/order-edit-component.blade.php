@@ -151,103 +151,108 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <div class="col-md-12 mt-3">
+                                     <div class="col-md-12 mt-3">
                                         <div class="table-responsive p-0">
                                             <table class="table align-items-center mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th colspan="3">Time Spent</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th
-                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Sewing
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                            Section
                                                         </th>
-                                                        <th
-                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                            Embroidery</th>
-                                                        <th
-                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                            Imprinting</th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                            Employee
+                                                        </th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                            Garments Assigned
+                                                        </th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                            Time Spent
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                 
-                                                    <tr>
-                                                        <td class="text-center">
-                                                            @if(!$need_sewing) 
-                                                                <i class="fa fa-close text-danger"></i>
-                                                            @endif
-                                                            @php 
-                                                            $sewingStart = $order->track()->where('type', 1)->where('status', 0)->first();
-                                                            $sewingEnd = $order->track()->where('type', 1)->where('status', 1)->first();
-                                                            @endphp
+                                                    @php
+                                                        $sections = ['Sewing', 'Embroidery', 'Imprinting'];
+                                                        $sectionFlags = [
+                                                            'Sewing' => $need_sewing,
+                                                            'Embroidery' => $need_embroidery,
+                                                            'Imprinting' => $need_imprinting
+                                                        ];
+                                                    @endphp
+                                                    
+                                                    @foreach($sections as $section)
+                                                        @if($sectionFlags[$section])
                                                             @php
-                                                                if($sewingStart && $sewingStart->created_at && $sewingEnd && $sewingEnd->created_at) { 
-                                                                    $diff = \Carbon\Carbon::parse($sewingStart->created_at)->diff($sewingEnd->created_at);
-                                                                    $hours = $diff->h > 0 ? $diff->h . ' hours' : '';
-                                                                    $minutes = $diff->i > 0 ? $diff->i . ' minutes' : '';
-                                                                    $seconds = $diff->s > 0 ? $diff->s . ' seconds' : '';     
-                                                                }
-                                                               
+                                                                $assignments = $order->assignments->where('section', $section);
                                                             @endphp
-                                                         
-                                                            @if($sewingStart && $sewingEnd && $need_sewing)
-                                                           
-                                                                {{ trim($hours . ' ' . $minutes . ' ' . $seconds) }}
-
+                                                            
+                                                            @if($assignments->count() > 0)
+                                                                @foreach($assignments as $assignment)
+                                                                    <tr>
+                                                                        <td class="text-center">
+                                                                            {{ $section }}
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            @if($assignment->employee)
+                                                                                {{ $assignment->employee->first_name }} {{ $assignment->employee->last_name }}
+                                                                            @else
+                                                                                N/A
+                                                                            @endif
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            {{ $assignment->garments_assigned }}
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            @if($assignment->employee)
+                                                                                @php
+                                                                                    $timeSpent = $this->getTimeSpentForEmployee($assignment->employee_id, $section);
+                                                                                @endphp
+                                                                                @if($timeSpent)
+                                                                                    {{ $timeSpent }}
+                                                                                @else
+                                                                                    <span class="text-muted">-</span>
+                                                                                @endif
+                                                                            @else
+                                                                                <span class="text-muted">-</span>
+                                                                            @endif
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            @else
+                                                                <tr>
+                                                                    <td class="text-center">{{ $section }}</td>
+                                                                    <td class="text-center" colspan="3">
+                                                                        <span class="text-muted">No assignments</span>
+                                                                    </td>
+                                                                </tr>
                                                             @endif
-                                                        </td>
-                                                        <td class="text-center">
-                                                            @if(!$need_embroidery) 
-                                                                <i class="fa fa-close text-danger"></i>
-                                                            @endif
-                                                            @php 
-                                                                $embStart = $order->track()->where('type', 2)->where('status', 0)->first();
-                                                                $embEnd = $order->track()->where('type', 2)->where('status', 1)->first();
-                                                                @endphp
-                                                                @php
-                                                                    if($embStart && $embStart->created_at && $embEnd && $embEnd->created_at) {
-                                                                        $diff = \Carbon\Carbon::parse($embStart->created_at)->diff($embEnd->created_at);
-                                                                        $hours = $diff->h > 0 ? $diff->h . ' hours' : '';
-                                                                        $minutes = $diff->i > 0 ? $diff->i . ' minutes' : '';
-                                                                        $seconds = $diff->s > 0 ? $diff->s . ' seconds' : '';
-                                                                    }
-                                                                       
-                                                                @endphp
-                                                                @if($embStart && $embEnd && $need_embroidery)
-                                                                {{ \Carbon\Carbon::parse($embStart->created_at)->diff($embEnd->created_at)->format('%h hours %i minutes %s seconds') }}
-
-                                                                @endif
-                                                        </td>
-                                                        <td class="text-center">
-                                                            @if(!$need_imprinting) 
-                                                                <i class="fa fa-close text-danger"></i>
-                                                                @endif
-                                                                @php 
-                                                                $impStart = $order->track()->where('type', 3)->where('status', 0)->first();
-                                                                $impEnd = $order->track()->where('type', 3)->where('status', 1)->first();
-                                                                @endphp
-                                                                    @php
-                                                                    if($impStart  && $impStart->created_at && $impEnd  && $impEnd->created_at) {
-                                                                        $diff = \Carbon\Carbon::parse($impStart->created_at)->diff($impEnd->created_at);
-                                                                        $hours = $diff->h > 0 ? $diff->h . ' hours' : '';
-                                                                        $minutes = $diff->i > 0 ? $diff->i . ' minutes' : '';
-                                                                        $seconds = $diff->s > 0 ? $diff->s . ' seconds' : '';
-                                                                    }
-                                                                   
-                                                                @endphp
-                                                                @if($impStart && $impEnd && $need_imprinting)
-                                                                {{ trim($hours . ' ' . $minutes . ' ' . $seconds) }}
-                                                                @endif
-                                                           
-                                                           
-                                                        </td>
-                                                    </tr>
-                                                   
+                                                        @endif
+                                                    @endforeach
+                                                    
+                                                    @if(!$need_sewing && !$need_embroidery && !$need_imprinting)
+                                                        <tr>
+                                                            <td class="text-center" colspan="4">
+                                                                <i class="fa fa-close text-danger"></i> No sections required
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
+                                    
+                                    <!-- Notes/Description Editor -->
+                                    <div class="col-md-12 mt-4">
+                                        <label class="form-label h5">NOTES</label>
+                                        <div wire:ignore>
+                                            <div id="quill-editor-edit" style="height: 200px;"></div>
+                                        </div>
+                                        <input type="hidden" id="notes-content-edit" wire:model="notes">
+                                        @error('notes')
+                                        <div class="form-text text-danger">
+                                            <b>{{ $message }}</b>
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -303,43 +308,43 @@
                         </tbody>
                     </table> --}}
                   <h5>📋 Order & Assignment Logs</h5>
-<table class="table table-sm table-bordered">
-    <thead>
-        <tr>
-            <th>Type</th>
-            <th>Title</th>
-            <th>User</th>
-            <th>Garments</th>
-            <th>Time</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{-- 📝 Order Logs --}}
-        @foreach($order->logs as $item)
-            <tr>
-                <td>📝 Order</td>
-                <td>{{ $item->title }}</td>
-                <td>{{ $item->user?->first_name }} {{ $item->user?->last_name }}</td>
-                <td>-</td>
-                <td class="text-center">{{ $item->created_at->format('M d, Y h:i A') }}</td>
-                
-            </tr>
-        @endforeach
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Title</th>
+                                <th>User</th>
+                                <th>Garments</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{-- 📝 Order Logs --}}
+                            @foreach($order->logs as $item)
+                                <tr>
+                                    <td>📝 Order</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->user?->first_name }} {{ $item->user?->last_name }}</td>
+                                    <td>-</td>
+                                    <td class="text-center">{{ $item->created_at->format('M d, Y h:i A') }}</td>
+                                    
+                                </tr>
+                            @endforeach
 
-        {{-- 👷 Assignment Logs --}}
-        @foreach($order->assignmentLogs as $log)
-            <tr>
-                <td>👷 Assignment</td>
-                <td>{{ $log->title }}</td>
-                <td>{{ $log->employee?->first_name }} {{ $log->employee?->last_name }}</td>
-                <td>
-                   {{ $log->garments_assigned }}
-                </td>
-                <td class="text-center">{{ $log->created_at->format('M d, Y h:i A') }}</td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+                            {{-- 👷 Assignment Logs --}}
+                            @foreach($order->assignmentLogs as $log)
+                                <tr>
+                                    <td>👷 Assignment</td>
+                                    <td>{{ $log->title }}</td>
+                                    <td>{{ $log->employee?->first_name }} {{ $log->employee?->last_name }}</td>
+                                    <td>
+                                    {{ $log->garments_assigned }}
+                                    </td><td class="text-center">{{ $log->created_at->format('M d, Y h:i A') }}</td>
+                                    
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
 
                 </div>
@@ -418,4 +423,72 @@
             </div>
         </div>
     @endif
+
+    <!-- Quill Editor CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    
+    <!-- Quill Editor JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    
+    <script>
+        let quillEdit;
+        let notesValue = @js($notes ?? '');
+
+        function initializeQuillEdit() {
+            if (quillEdit || !document.getElementById('quill-editor-edit')) {
+                return;
+            }
+
+            // Initialize Quill editor
+            quillEdit = new Quill('#quill-editor-edit', {
+                theme: 'snow',
+                modules: {
+                    toolbar: [
+                        [{ 'header': [1, 2, 3, false] }],
+                        ['bold', 'italic', 'underline', 'strike'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'color': [] }, { 'background': [] }],
+                        ['link'],
+                        ['clean']
+                    ]
+                }
+            });
+
+            // Set initial content from notesValue
+            if (notesValue) {
+                quillEdit.root.innerHTML = notesValue;
+            }
+
+            // Update Livewire property when content changes (with debounce)
+            let updateTimeout;
+            quillEdit.on('text-change', function() {
+                clearTimeout(updateTimeout);
+                updateTimeout = setTimeout(function() {
+                    var content = quillEdit.root.innerHTML;
+                    @this.set('notes', content);
+                }, 300);
+            });
+        }
+
+        // Initialize when Livewire is ready
+        document.addEventListener('livewire:init', () => {
+            Livewire.hook('morph.updated', ({ el, component }) => {
+                if (document.getElementById('quill-editor-edit') && !quillEdit) {
+                    // Get fresh notes value from component
+                    notesValue = @this.get('notes') || '';
+                    initializeQuillEdit();
+                }
+            });
+        });
+
+        // Fallback: initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(initializeQuillEdit, 300);
+            });
+        } else {
+            setTimeout(initializeQuillEdit, 300);
+        }
+    </script>
+
 </div>

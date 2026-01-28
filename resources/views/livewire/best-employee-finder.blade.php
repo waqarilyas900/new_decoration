@@ -73,7 +73,7 @@
                             @if($overallCompletion)
                                 <div class="alert alert-info text-center">
                                     <strong>Order Completion:</strong><br>
-                                    <b>{{ \Carbon\Carbon::parse($overallCompletion)->format('M d, Y g:i A') }}<b>
+                                    <b>{{ \Carbon\Carbon::parse($overallCompletion, 'UTC')->setTimezone(config('app.timezone'))->format('M d, Y g:i A') }}<b>
                                 </div>
                             @endif
                         </div>
@@ -106,14 +106,14 @@
                                                 <div class="badge bg-secondary px-2 py-1 mb-2 mb-sm-1">
                                                     <small class="opacity-75">Previous ETA:</small><br class="d-sm-none">
                                                     {{ !empty($info['previous_eta']) && $info['previous_eta'] !== 'N/A' 
-                                                        ? \Carbon\Carbon::parse($info['previous_eta'])->format('M d, Y g:i A') 
+                                                        ? \Carbon\Carbon::parse($info['previous_eta'], 'UTC')->setTimezone(config('app.timezone'))->format('M d, Y g:i A') 
                                                         : 'N/A' }}
                                                 </div>
 
                                                 <div class="badge bg-dark px-2 py-1">
                                                     <small class="opacity-75">New ETA:</small><br class="d-sm-none">
                                                     {{ !empty($info['new_eta']) && $info['new_eta'] !== 'N/A' 
-                                                        ? \Carbon\Carbon::parse($info['new_eta'])->format('M d, Y g:i A') 
+                                                        ? \Carbon\Carbon::parse($info['new_eta'], 'UTC')->setTimezone(config('app.timezone'))->format('M d, Y g:i A') 
                                                         : 'N/A' }}
                                                 </div>
                                             </div>
@@ -150,10 +150,10 @@
 
                                                 <td>{{ $data['employee']->department ?? 'N/A' }}</td>
 
-                                                <td>{{ $data['personal_eta']?->format('M d, Y H:i') ?? 'N/A' }}</td>
+                                                <td>{{ $data['personal_eta'] ? \Carbon\Carbon::parse($data['personal_eta'], 'UTC')->setTimezone(config('app.timezone'))->format('M d, Y H:i') : 'N/A' }}</td>
 
                                             
-                                                <td>{{ $data['free_at']?->format('M d, Y H:i') ?? 'N/A' }}</td>
+                                                <td>{{ $data['free_at'] ? \Carbon\Carbon::parse($data['free_at'], 'UTC')->setTimezone(config('app.timezone'))->format('M d, Y H:i') : 'N/A' }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

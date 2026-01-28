@@ -133,6 +133,20 @@
                                                 wire:click="openSplitModal('Imprinting')">Assign</button>
                                     @endif
                                 </div>
+                                
+                                <!-- Notes/Description Editor -->
+                                <div class="mt-4">
+                                    <label class="form-label h5">NOTES</label>
+                                    <div wire:ignore>
+                                        <div id="quill-editor" style="height: 200px;"></div>
+                                    </div>
+                                    <input type="hidden" id="notes-content" wire:model="notes">
+                                    @error('notes')
+                                    <div class="form-text text-danger">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                    @enderror
+                                </div>
                             </div>
 
                         </div>
@@ -238,5 +252,61 @@
             </div>
         </div>
     @endif
+
+    <!-- Quill Editor CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    
+    <!-- Quill Editor JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    
+    <script>
+        let quill;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeQuill();
+        });
+
+        function initializeQuill() {
+            // Initialize Quill editor
+            quill = new Quill('#quill-editor', {
+                theme: 'snow',
+                modules: {
+                    toolbar: [
+                        [{ 'header': [1, 2, 3, false] }],
+                        ['bold', 'italic', 'underline', 'strike'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'color': [] }, { 'background': [] }],
+                        ['link'],
+                        ['clean']
+                    ]
+                }
+            });
+
+            // Get initial content from Livewire
+            @if($notes)
+                quill.root.innerHTML = @js($notes);
+            @endif
+
+            // Update Livewire property when content changes (with debounce)
+            let updateTimeout;
+            quill.on('text-change', function() {
+                clearTimeout(updateTimeout);
+                updateTimeout = setTimeout(function() {
+                    var content = quill.root.innerHTML;
+                    @this.set('notes', content);
+                }, 300);
+            });
+        }
+
+        // Listen for Livewire updates (when form is reset)
+        document.addEventListener('livewire:init', () => {
+            Livewire.hook('morph.updated', ({ el, component }) => {
+                // Reset Quill editor when notes is reset
+                if (quill && !@this.notes) {
+                    quill.setContents([]);
+                }
+            });
+        });
+    </script>
 
 </div>

@@ -20,7 +20,6 @@ class BestEmployeeFinder extends Component
 
     public function boot()
     {
-        // ✅ Resolve EtaService from the service container
         $this->etaService = app(EtaService::class);
     }
 
@@ -45,14 +44,28 @@ class BestEmployeeFinder extends Component
             return;
         }
 
-        // ✅ Call EtaService
-        $this->results = $this->etaService->calculateEtas();
+        $calculationTime = now()->toDateTimeString();
 
+        $this->results = $this->etaService->calculateEtas($calculationTime);
         $employeeFreeTimes = $this->results['employeeFreeTimes'] ?? [];
 
         if (empty($employeeFreeTimes)) {
             $this->errorMessage = 'No employees found with active assignments.';
             return;
+        }
+
+        $employeeOrderMap = [];
+        foreach ($employeeFreeTimes as $employeeId => $data) {
+            $employee = $data['employee'];
+            
+            $employeeResults = $this->etaService->calculateEtas($calculationTime, $employeeId);
+            $employeeOrderEtas = $employeeResults['orderEtas'] ?? [];
+            
+            if (!empty($employeeOrderEtas)) {
+                $employeeOrderMap[$employeeId] = collect($employeeOrderEtas)->max();
+            } else {
+                $employeeOrderMap[$employeeId] = $data['free_at'];
+            }
         }
 
         foreach ($this->selectedSections as $section) {
@@ -62,23 +75,29 @@ class BestEmployeeFinder extends Component
                 ->first();
 
             if ($best) {
-                // Calculate new ETA after adding new quantity
-                $previousEta = $best['personal_eta'] ? $best['personal_eta']->copy() : null;
-                $newEta = $best['free_at']->copy();
                 $employee = $best['employee'];
+                $employeeId = $employee->id;
+                
+                $previousEta = isset($employeeOrderMap[$employeeId]) 
+                    ? $employeeOrderMap[$employeeId]->copy() 
+                    : $best['free_at']->copy();
+                
+                $newEta = $previousEta->copy();
 
-                // Get time per garment for this employee
-                $timePerGarment = $employee->time_per_garment ?? '00:00:00';
-                $timeInterval = \Carbon\CarbonInterval::createFromFormat('H:i:s', $timePerGarment);
+                $timePerGarmentStr = $employee->time_per_garment ?? '00:00:00';
+                if (substr_count($timePerGarmentStr, ':') === 1) {
+                    $timePerGarmentStr .= ':00';
+                }
+                $timeInterval = \Carbon\CarbonInterval::createFromFormat('H:i:s', $timePerGarmentStr);
                 $totalSeconds = $timeInterval->totalSeconds * $this->quantity;
 
-                // Add time for new quantity, skipping weekends and outside working hours
                 $startHour = \Carbon\Carbon::createFromFormat('H:i:s', $employee->working_hours_start);
                 $endHour = \Carbon\Carbon::createFromFormat('H:i:s', $employee->working_hours_end);
-                $eta = $newEta->copy();
+
+                $eta = $this->normalizeStartTime($newEta->copy(), $startHour, $endHour);
                 $secondsLeft = $totalSeconds;
+                
                 while ($secondsLeft > 0) {
-                    // If weekend, skip to next working day
                     if ($eta->isSaturday() || $eta->isSunday()) {
                         $eta->addDay()->setTimeFrom($startHour);
                         continue;
@@ -91,20 +110,19 @@ class BestEmployeeFinder extends Component
                     if ($secondsLeft > 0) {
                         $eta->addDay()->setTimeFrom($startHour);
                         while ($eta->isSaturday() || $eta->isSunday()) {
-                            $eta->addDay();
+                            $eta->addDay()->setTimeFrom($startHour);
                         }
                     }
                 }
 
                 $this->bestEmployees[$section] = [
                     'employee'      => $employee->first_name . ' ' . $employee->last_name,
-                    'previous_eta'  => $previousEta ? $previousEta->format('M d, Y H:i') : 'N/A',
-                    'new_eta'       => $eta->format('M d, Y H:i'),
+                    'previous_eta'  => $previousEta ? $previousEta->setTimezone(config('app.timezone'))->format('M d, Y H:i') : 'N/A',
+                    'new_eta'       => $eta->setTimezone(config('app.timezone'))->format('M d, Y H:i'),
                 ];
             }
         }
 
-        // After the foreach ($this->selectedSections as $section)
         if (!empty($this->bestEmployees)) {
             $latestEta = collect($this->bestEmployees)
                 ->map(fn($info) => \Carbon\Carbon::parse($info['new_eta']))
@@ -112,11 +130,37 @@ class BestEmployeeFinder extends Component
                 ->first();
 
             if ($latestEta) {
-                $this->overallCompletion = $latestEta->format('M d, Y H:i');
+                $this->overallCompletion = $latestEta->setTimezone(config('app.timezone'))->format('M d, Y H:i');
             }
         }
 
 
+    }
+
+    private function normalizeStartTime($start, $startHour, $endHour)
+    {
+        $currentDateStartTime = $start->copy()->setTimeFrom($startHour);
+        $currentDateEndTime = $start->copy()->setTimeFrom($endHour);
+
+        if ($start->lt($currentDateStartTime)) {
+            $start = $currentDateStartTime->copy();
+        } 
+      
+        elseif ($start->gte($currentDateEndTime)) {
+            $start = $currentDateStartTime->copy()->addDay();
+            $start->setTimeFrom($startHour);
+        }
+    
+        while ($this->isWeekend($start)) {
+            $start->addDay()->setTimeFrom($startHour);
+        }
+
+        return $start;
+    }
+
+    private function isWeekend(\Carbon\Carbon $date)
+    {
+        return $date->isSaturday() || $date->isSunday();
     }
 
 }

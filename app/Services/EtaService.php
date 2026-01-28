@@ -10,29 +10,37 @@ use Illuminate\Support\Collection;
 
 class EtaService
 {
-    public function calculateEtas(?string $calculationTime = null): array
+    public function calculateEtas(?string $calculationTime = null, ?int $employeeId = null): array
     {
         $calculationTime = $calculationTime ?? now()->toDateTimeString();
 
-        // Only assignments for employees where is_delete = 0
-        $employeeAssignments = OrderAssignment::with(['employee', 'order'])
+        $query = OrderAssignment::with(['employee', 'order'])
             ->whereHas('employee', fn($q) => $q->where('is_delete', 0))
             ->whereHas('order', fn($q) => $q->where('status', 0))
-            ->where('is_complete', false)
-            ->get()
-            ->groupBy('employee_id');
+            ->where('is_complete', false);
+
+        if ($employeeId) {
+            $query->where('employee_id', $employeeId);
+        }
+
+        $employeeAssignments = $query->get()->groupBy('employee_id');
 
         $cursorTimes = [];
         $orderEtaTracker = [];
 
-        // Calculate ETA per employee
         foreach ($employeeAssignments as $employeeId => $assignments) {
             $employee = $assignments->first()->employee;
             if (!$employee) continue;
 
             $startHour = Carbon::createFromFormat('H:i:s', $employee->working_hours_start);
             $endHour   = Carbon::createFromFormat('H:i:s', $employee->working_hours_end);
-            $timePerGarment = CarbonInterval::createFromFormat('H:i:s', $employee->time_per_garment);
+
+            $timePerGarmentStr = $employee->time_per_garment;
+
+            if (substr_count($timePerGarmentStr, ':') === 1) {
+                $timePerGarmentStr .= ':00';
+            }
+            $timePerGarment = CarbonInterval::createFromFormat('H:i:s', $timePerGarmentStr);
 
             $cursorTimes[$employeeId] = $this->normalizeStartTime(
                 Carbon::parse($calculationTime),
@@ -43,13 +51,32 @@ class EtaService
             // Group assignments by order
             $groupedAssignments = $assignments->groupBy('order_id');
 
-            foreach ($groupedAssignments as $orderId => $orderAssignments) {
+            // Sort orders by priority first (priority orders come first), then by creation date
+            $sortedOrders = $groupedAssignments->sortBy(function ($orderAssignments, $orderId) {
+                $order = $orderAssignments->first()->order;
+                // Priority orders get 0, non-priority get 1, then sort by created_at
+                return sprintf(
+                    '%d-%d',
+                    $order->is_priority ? 0 : 1,
+                    $order->created_at->timestamp
+                );
+            });
+
+            // Process orders sequentially - each order starts after the previous one completes
+            foreach ($sortedOrders as $orderId => $orderAssignments) {
                 $maxEtaForOrder = null;
 
-                foreach ($orderAssignments as $assignment) {
+                // Sort assignments within order by section priority
+                $sortedAssignments = $orderAssignments->sortBy(function ($assignment) {
+                    return $this->getSectionPriority($assignment->section);
+                });
+
+                foreach ($sortedAssignments as $assignment) {
+                    // Start from current cursor time (which is after previous order completes)
                     $eta = $cursorTimes[$employeeId]->copy();
                     $totalSeconds = $timePerGarment->totalSeconds * $assignment->garments_assigned;
 
+                    // Normalize start time to respect working hours
                     $eta = $this->normalizeStartTime($eta, $startHour, $endHour);
                     $secondsLeft = $totalSeconds;
 
@@ -69,7 +96,7 @@ class EtaService
                         if ($secondsLeft > 0) {
                             $eta->addDay()->setTimeFrom($startHour);
                             while ($this->isWeekend($eta)) {
-                                $eta->addDay();
+                                $eta->addDay()->setTimeFrom($startHour);
                             }
                         }
                     }
@@ -85,15 +112,13 @@ class EtaService
                     $orderEtaTracker[$orderId] = $maxEtaForOrder->copy();
                 }
 
-                // Force employee cursor to wait until order is done
+                // Update cursor to start of next order (after this order completes)
                 $cursorTimes[$employeeId] = $orderEtaTracker[$orderId]->copy();
             }
         }
 
-        // Compute overall breakdown
         $overallEtaBreakdown = $this->computeOverallBreakdown($orderEtaTracker);
 
-        // Build employee free times
         $employeeFreeTimes = [];
 
         foreach ($employeeAssignments as $employeeId => $assignments) {
@@ -112,23 +137,42 @@ class EtaService
                 $employeeFreeTimes[$employeeId] = [
                     'employee'     => $employee,
                     'free_at'      => $latestEta,
-                    'personal_eta' => $cursorTimes[$employeeId] ?? null,
+                    'personal_eta' => $latestEta,
+                ];
+            } else {
+                $normalizedNow = $this->normalizeStartTime(
+                    Carbon::parse($calculationTime),
+                    $startHour,
+                    $endHour
+                );
+                $employeeFreeTimes[$employeeId] = [
+                    'employee'     => $employee,
+                    'free_at'      => $normalizedNow,
+                    'personal_eta' => $normalizedNow,
                 ];
             }
         }
 
-        // Add employees with no assignments (they are free immediately)
+       
         $allEmployees = Employee::whereNotNull('department')
-            ->where('active', 1)      // optional: only active employees
-            ->where('is_delete', 0)   // exclude deleted employees
+            ->where('active', 1)      
+            ->where('is_delete', 0) 
             ->get();
 
         foreach ($allEmployees as $emp) {
             if (!isset($employeeFreeTimes[$emp->id])) {
+                $startHour = Carbon::createFromFormat('H:i:s', $emp->working_hours_start);
+                $endHour = Carbon::createFromFormat('H:i:s', $emp->working_hours_end);
+                $normalizedNow = $this->normalizeStartTime(
+                    Carbon::parse($calculationTime),
+                    $startHour,
+                    $endHour
+                );
+                
                 $employeeFreeTimes[$emp->id] = [
                     'employee'     => $emp,
-                    'free_at'      => now(),
-                    'personal_eta' => null,
+                    'free_at'      => $normalizedNow,
+                    'personal_eta' => $normalizedNow,
                 ];
             }
         }
@@ -178,15 +222,19 @@ class EtaService
 
     private function normalizeStartTime($start, $startHour, $endHour)
     {
-        $startTime = $start->copy()->setTimeFrom($startHour);
-        $endTime = $start->copy()->setTimeFrom($endHour);
+        
+        $currentDateStartTime = $start->copy()->setTimeFrom($startHour);
+        $currentDateEndTime = $start->copy()->setTimeFrom($endHour);
 
-        if ($start->lt($startTime)) {
-            $start = $startTime;
-        } elseif ($start->gte($endTime)) {
-            $start = $startTime->addDay();
+     
+        if ($start->lt($currentDateStartTime)) {
+            $start = $currentDateStartTime->copy();
+        } 
+      
+        elseif ($start->gte($currentDateEndTime)) {
+            $start = $currentDateStartTime->copy()->addDay();
+            $start->setTimeFrom($startHour);
         }
-
         while ($this->isWeekend($start)) {
             $start->addDay()->setTimeFrom($startHour);
         }

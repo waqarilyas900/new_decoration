@@ -171,71 +171,38 @@
                                                         <td class="text-center">
                                                             @if(!$need_sewing) 
                                                                 <i class="fa fa-close text-danger"></i>
-                                                            @endif
-                                                            @php 
-                                                            $sewingStart = $order->track()->where('type', 1)->where('status', 0)->first();
-                                                            $sewingEnd = $order->track()->where('type', 1)->where('status', 1)->first();
-                                                            @endphp
-                                                            @php
-                                                                if($sewingStart && $sewingStart->created_at && $sewingEnd && $sewingEnd->created_at) { 
-                                                                    $diff = \Carbon\Carbon::parse($sewingStart->created_at)->diff($sewingEnd->created_at);
-                                                                    $hours = $diff->h > 0 ? $diff->h . ' hours' : '';
-                                                                    $minutes = $diff->i > 0 ? $diff->i . ' minutes' : '';
-                                                                    $seconds = $diff->s > 0 ? $diff->s . ' seconds' : '';     
-                                                                }
-                                                               
-                                                            @endphp
-                                                         
-                                                            @if($sewingStart && $sewingEnd && $need_sewing)
-                                                           
-                                                                {{ trim($hours . ' ' . $minutes . ' ' . $seconds) }}
-
+                                                            @else
+                                                                @php
+                                                                    $timeSpent = $this->getTimeSpentForEmployee($employeeId, 'Sewing');
+                                                                @endphp
+                                                                @if($timeSpent)
+                                                                    {{ $timeSpent }}
+                                                                @endif
                                                             @endif
                                                         </td>
                                                         <td class="text-center">
                                                             @if(!$need_embroidery) 
                                                                 <i class="fa fa-close text-danger"></i>
-                                                            @endif
-                                                            @php 
-                                                                $embStart = $order->track()->where('type', 2)->where('status', 0)->first();
-                                                                $embEnd = $order->track()->where('type', 2)->where('status', 1)->first();
-                                                                @endphp
+                                                            @else
                                                                 @php
-                                                                    if($embStart && $embStart->created_at && $embEnd && $embEnd->created_at) {
-                                                                        $diff = \Carbon\Carbon::parse($embStart->created_at)->diff($embEnd->created_at);
-                                                                        $hours = $diff->h > 0 ? $diff->h . ' hours' : '';
-                                                                        $minutes = $diff->i > 0 ? $diff->i . ' minutes' : '';
-                                                                        $seconds = $diff->s > 0 ? $diff->s . ' seconds' : '';
-                                                                    }
-                                                                       
+                                                                    $timeSpent = $this->getTimeSpentForEmployee($employeeId, 'Embroidery');
                                                                 @endphp
-                                                                @if($embStart && $embEnd && $need_embroidery)
-                                                                {{ \Carbon\Carbon::parse($embStart->created_at)->diff($embEnd->created_at)->format('%h hours %i minutes %s seconds') }}
-
+                                                                @if($timeSpent)
+                                                                    {{ $timeSpent }}
                                                                 @endif
+                                                            @endif
                                                         </td>
                                                         <td class="text-center">
                                                             @if(!$need_imprinting) 
                                                                 <i class="fa fa-close text-danger"></i>
-                                                                @endif
-                                                                @php 
-                                                                $impStart = $order->track()->where('type', 3)->where('status', 0)->first();
-                                                                $impEnd = $order->track()->where('type', 3)->where('status', 1)->first();
+                                                            @else
+                                                                @php
+                                                                    $timeSpent = $this->getTimeSpentForEmployee($employeeId, 'Imprinting');
                                                                 @endphp
-                                                                    @php
-                                                                    if($impStart  && $impStart->created_at && $impEnd  && $impEnd->created_at) {
-                                                                        $diff = \Carbon\Carbon::parse($impStart->created_at)->diff($impEnd->created_at);
-                                                                        $hours = $diff->h > 0 ? $diff->h . ' hours' : '';
-                                                                        $minutes = $diff->i > 0 ? $diff->i . ' minutes' : '';
-                                                                        $seconds = $diff->s > 0 ? $diff->s . ' seconds' : '';
-                                                                    }
-                                                                   
-                                                                @endphp
-                                                                @if($impStart && $impEnd && $need_imprinting)
-                                                                {{ trim($hours . ' ' . $minutes . ' ' . $seconds) }}
+                                                                @if($timeSpent)
+                                                                    {{ $timeSpent }}
                                                                 @endif
-                                                           
-                                                           
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                    
@@ -279,7 +246,7 @@
                                     @endif
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    {{ date('m-d-Y h:i:A', strtotime($item->created_at)) }}
+                                    {{ \Carbon\Carbon::parse($item->created_at, 'UTC')->setTimezone(config('app.timezone'))->format('m-d-Y h:i A') }}
                                 </td>
 
                             </tr>
