@@ -125,7 +125,7 @@
 
                                     <tr wire:key="order-{{ $order->id }}" @if($order->is_priority) style="background-color: #f8d7da;" @endif>
                                         <!-- Date -->
-                                        <td><h6>{{ date('m-d-Y', strtotime($order->created_at)) }}</h6></td>
+                                        <td><h6>{{ \Carbon\Carbon::parse($order->created_at, 'UTC')->setTimezone(config('app.timezone'))->format('m-d-Y') }}</h6></td>
 
                                         <!-- Order Number -->
                                         <td><h6>{{ $order->order_number }}</h6></td>
@@ -217,7 +217,7 @@
                                         <!-- Delivery Date/Time -->
                                         <td>
                                             @if(!empty($order->eta_data))
-                                                {{ \Carbon\Carbon::parse($order->eta_data['expected_delivery'])->format('M d, Y h:i A') }}
+                                                {{ \Carbon\Carbon::parse($order->eta_data['expected_delivery'], 'UTC')->setTimezone(config('app.timezone'))->format('M d, Y h:i A') }}
                                             @else
                                                 <span class="text-muted">—</span>
                                             @endif

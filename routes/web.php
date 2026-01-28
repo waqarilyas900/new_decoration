@@ -17,6 +17,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RestrictExternalEmployees;
 use App\Livewire\BestEmployeeFinder;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,11 @@ Route::get('email', function() {
 
 
     Route::get('send-email', [EmailSendController::class, 'sendTestEmail'])->name('send.email');
+
+    Route::get('/migrate', function () {
+        Artisan::call('migrate', [
+            '--force' => true
+        ]);
+
+        return "Migration executed successfully!";
+    });

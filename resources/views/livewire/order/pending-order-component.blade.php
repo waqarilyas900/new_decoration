@@ -89,7 +89,7 @@
                                 @foreach($orders as $order)
                                 <tr @if($order->is_priority) style="background-color: #f8d7da;" @endif>
                                     <td>
-                                        <h6>{{ date('m-d-Y', strtotime($order->created_at)) }}</h6>
+                                        <h6>{{ \Carbon\Carbon::parse($order->created_at, 'UTC')->setTimezone(config('app.timezone'))->format('m-d-Y') }}</h6>
                                     </td>
                                     <td>
                                         <h6>{{ $order->order_number }}</h6>
@@ -186,7 +186,7 @@
                                     </td>
                                     <td class="align-middle text-center text-sm">
                                         @if($order->expected_delivery)
-                                           {{ \Carbon\Carbon::parse($order->expected_delivery)->format('M d, Y h:i A') }}
+                                           {{ \Carbon\Carbon::parse($order->expected_delivery, 'UTC')->setTimezone(config('app.timezone'))->format('M d, Y h:i A') }}
                                         @else
                                             <span class="text-muted">N/A</span>
                                         @endif

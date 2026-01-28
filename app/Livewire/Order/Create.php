@@ -30,7 +30,8 @@ class Create extends Component
     public $splitQuantitiesPattern = null;
     public $allSplitEntries = [];
     public $isQuantityFromPattern = false;
-    public $pendingOrdersPerEmployee = []; 
+    public $pendingOrdersPerEmployee = [];
+    public $notes = ''; 
     public function mount()
     {
         $this->employees = Employee::where('type', 1)
@@ -68,7 +69,8 @@ class Create extends Component
             'need_imprinting' => 'nullable',
             'need_embroidery' => 'nullable',
             'number_of_garments' => 'nullable|integer|min:1',
-            'is_priority' => 'nullable|boolean', 
+            'is_priority' => 'nullable|boolean',
+            'notes' => 'nullable|string', 
         ];
     }
     public function render()

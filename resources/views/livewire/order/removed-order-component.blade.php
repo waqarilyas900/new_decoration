@@ -59,7 +59,7 @@
                                 @foreach($orders as $order)
                                 <tr>
                                     <td>
-                                        <h6>{{ date('m-d-Y', strtotime($order->created_at)) }}</h6>
+                                        <h6>{{ \Carbon\Carbon::parse($order->created_at, 'UTC')->setTimezone(config('app.timezone'))->format('m-d-Y') }}</h6>
                                     </td>
                                     <td>
                                         <h6>{{ $order->order_number }}</h6>
